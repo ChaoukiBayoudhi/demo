@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"-->
+<!--      fx:controller="com.example.demo.LoginController">-->
+<!--   <padding>-->
+<!--      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>-->
+<!--   </padding>-->
+<!--</VBox>-->
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+   <Button fx:id="loginButton" layoutX="151.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="sing in"/>
+   <Button fx:id="cancelButton" layoutX="286.0" layoutY="262.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel"/>
+   <Pane layoutX="95.0" layoutY="37.0" prefHeight="200.0" prefWidth="324.0">
+      <Label layoutX="21.0" layoutY="38.0" text="Login"/>
+      <Label layoutX="21.0" layoutY="100.0" text="Password"/>
+      <TextField fx:id="login" layoutX="106.0" layoutY="34.0" text="login"/>
+      <PasswordField fx:id="password" layoutX="106.0" layoutY="88.0" text="password"/>
+   </Pane>
+</AnchorPane>

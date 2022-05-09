@@ -3,10 +3,13 @@ package com.example.demo;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 
@@ -39,6 +42,29 @@ public class LoginController {
                     "Please enter a password");
             blocked=true;
         }
+       blocked=!DBConnection.signIn(login.getText(), password.getText());
+       if(!blocked)
+       {
+           try {
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboardPage.fxml"));
+               Parent root = loader.load();
+
+               //Get controller of scene2
+               DashboardController dashController = loader.getController();
+               dashController.transferMessage(login.getText());
+
+               Stage stage = new Stage();
+               Scene scene = new Scene(root, 500, 340);
+
+               stage.setScene(scene);
+               stage.setTitle("Dashboard Window");
+               stage.show();
+           } catch (Exception ex) {
+               System.err.println(ex.getMessage());
+           }
+       }
+       else
+           showAlert(Alert.AlertType.ERROR,owner,"sign in Error","Please Verify login and/or password !");
 
 
     }
